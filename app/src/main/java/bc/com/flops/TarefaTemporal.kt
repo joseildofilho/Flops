@@ -4,5 +4,6 @@ import java.util.*
 
 data class TarefaTemporal(
     val dataInicio: Date,
-    var tempoEsperado: Long
+    var tempoEsperado: Long,
+    var tempoDecorrido:Long
 )
