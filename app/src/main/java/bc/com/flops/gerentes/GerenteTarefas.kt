@@ -1,5 +1,6 @@
 package bc.com.flops.gerentes
 
+import bc.com.flops.StateChanged
 import bc.com.flops.Tarefa
 
 interface GerenteTarefas {
@@ -32,5 +33,12 @@ interface GerenteTarefas {
      * Retorna a quantidade de tarefas cadastradas
      * */
     fun quantTarefas(): Int
+
+    /**
+     *
+     * Cadastra um objeto para fica escutando quando houver mudanças no gerente
+     * */
+
+    fun cadastraListener(inter: StateChanged<Tarefa>)
 
 }

@@ -27,7 +27,11 @@ data class Tarefa(
 
 ) {
     private var tarefaTemporal:TarefaTemporal? = null
-    private val tarefas = hashSetOf<Tarefa>()
+    private val tarefas: HashSet<Tarefa> = hashSetOf()
+
+    fun subTarefas(): Array<Tarefa> {
+        return tarefas.toTypedArray()
+    }
 
     fun isTemporal(): Boolean {
         return tarefaTemporal != null
