@@ -14,7 +14,7 @@ class GerenteTarefasMemoriaTest {
     private lateinit var tarefa2:Tarefa
     @Before
     fun setUp() {
-        gerenteTarefas = GerenteTarefasMemoria()
+        gerenteTarefas = GerenteTarefasMemoria
 
         tarefa = FabricaTarefa.tarefaEmBranco()
         tarefa.nome = "Test1"

@@ -13,6 +13,10 @@ import kotlinx.android.synthetic.main.activity_cadastro_tarefa_rapido.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.toast
 
+/**
+ *
+ * */
+
 class CadastroTarefaRapido : Fragment() {
 
     private val gerenteTarefas:GerenteTarefas = GerenteTarefasMemoria

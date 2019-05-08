@@ -5,7 +5,16 @@ import bc.com.flops.StateChanged
 import bc.com.flops.Tarefa
 import bc.com.flops.fabricas.FabricaTarefa
 
-
+/**
+ * Gernete Tarefas Memoria
+ * Classe auxiliar, é usada apenas para dá suporte ao desenvolvimento
+ * no momento atual ela não parece ter utilidade para produção
+ * logo será substituida por uma classe que use persistencia em banco
+ *
+ * É implementada com singleton, para que o app consiga utilizar sem necessidade de copias.
+ *
+ * mais detalhes ver @see GerenteTarefas
+ * */
 object GerenteTarefasMemoria:GerenteTarefas {
 
     private val listaOrelhas = mutableListOf<StateChanged<Tarefa>>()

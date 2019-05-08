@@ -4,6 +4,11 @@ import bc.com.flops.Tarefa;
 
 import java.util.Date;
 
+
+/**
+ * Classe que implementa o padrão factory
+ * Cria Classes tarefa
+ * */
 public class FabricaTarefa {
 
     public FabricaTarefa() throws Exception {

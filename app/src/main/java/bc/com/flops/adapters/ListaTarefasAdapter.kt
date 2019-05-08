@@ -11,6 +11,12 @@ import bc.com.flops.R
 import bc.com.flops.StateChanged
 import bc.com.flops.Tarefa
 
+/**
+ * Lista Tarefas Adapter
+ *
+ * Classe responsavel por gerenciar o que está sendo mostrado da view lista_tarefas
+ * */
+
 class ListaTarefasAdapter(private val ctx: Context): BaseExpandableListAdapter(), StateChanged<Tarefa> {
 
     override fun onChange(list: List<Tarefa>) {
