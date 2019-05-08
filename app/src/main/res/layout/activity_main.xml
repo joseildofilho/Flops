@@ -23,8 +23,11 @@
             tools:layout_editor_absoluteY="0dp"
             tools:layout_editor_absoluteX="0dp"
             android:id="@+id/linearLayout2">
-        <include
+        <fragment
                 layout="@layout/content_lista_tarefas"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                class="bc.com.flops.ListaTarefasActivity"
         />
     </LinearLayout>
     <fragment

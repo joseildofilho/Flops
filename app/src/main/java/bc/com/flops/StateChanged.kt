@@ -5,7 +5,5 @@ package bc.com.flops
  * Escrevendo a roda novamento ...
  * */
 interface StateChanged <E> {
-
     fun onChange(list: List<E>)
-
 }
