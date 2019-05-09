@@ -10,6 +10,7 @@ import android.widget.ExpandableListView
 import bc.com.flops.adapters.ListaTarefasAdapter
 import bc.com.flops.gerentes.GerenteTarefas
 import bc.com.flops.gerentes.GerenteTarefasFirebase
+import org.jetbrains.anko.sdk27.coroutines.onGroupClick
 import org.jetbrains.anko.sdk27.coroutines.onItemLongClick
 import org.jetbrains.anko.support.v4.startActivity
 
@@ -32,6 +33,10 @@ class ListaTarefasActivity: Fragment() {
         gerenteTarefas.cadastraListener(adapter)
 
         lista.setAdapter(adapter)
+
+        lista.onGroupClick { parent, v, groupPosition, id ->
+            Log.v("testando", "opaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+        }
 
         lista.onItemLongClick { parent, _, position, id ->
             val ev = parent as ExpandableListView

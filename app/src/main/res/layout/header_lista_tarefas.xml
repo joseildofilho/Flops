@@ -2,11 +2,29 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
+    <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:checked="false"
+            style="@style/Widget.AppCompat.CompoundButton.CheckBox"
+            android:id="@+id/header_check" android:focusable="false"/>
     <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/header_txt_titulo"
             android:padding="5sp"
-    />
+            android:textAlignment="textStart"/>
+    <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_weight="100"/>
+    <TextView
+            android:text="100%"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/header_txt_progresso"
+            android:layout_weight="0"
+            android:paddingRight="10sp"
+            android:textAlignment="textEnd"/>
 
 </LinearLayout>
