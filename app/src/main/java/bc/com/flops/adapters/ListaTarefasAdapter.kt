@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseExpandableListAdapter
 import android.widget.CheckBox
+import android.widget.ImageButton
 import android.widget.TextView
 import bc.com.flops.R
 import bc.com.flops.StateChanged
@@ -47,6 +48,14 @@ class ListaTarefasAdapter(private val ctx: Context): BaseExpandableListAdapter()
         progresso?.text = tituloListas[tarefa].progresso.toString() + "%"
 
         done!!.isChecked = tituloListas[tarefa].progresso == 100 && !done!!.isChecked
+
+        val temporal_pomodoro = view?.findViewById<ImageButton>(R.id.header_btn_pomodoro)
+        if( temporal_pomodoro != null)
+            if(tituloListas[tarefa].isTemporal()) {
+                temporal_pomodoro.visibility = View.VISIBLE
+            } else {
+                temporal_pomodoro.visibility = View.GONE
+            }
 
         return view!!
     }
