@@ -7,16 +7,37 @@
         tools:context=".MainActivity"
         android:layout_gravity="center"
         android:orientation="vertical" android:id="@+id/linearLayout">
-
-    <android.support.design.widget.FloatingActionButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:clickable="true" app:srcCompat="@android:drawable/ic_input_add"
-            android:id="@+id/action_btn_cria_tarefa"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="24dp" android:layout_marginEnd="24dp"
-    />
+    <android.support.v7.widget.Toolbar android:id="@+id/toolbar"
+                                       android:minHeight="?attr/actionBarSize"
+                                       android:layout_width="match_parent"
+                                       android:layout_height="wrap_content"
+                                       android:background="?attr/colorPrimary"
+                                       app:layout_constraintTop_toTopOf="parent"
+    >
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:layout_gravity="center"
+                android:textSize="40sp"
+                android:id="@+id/txt_title"
+                android:textColor="#FFFFFF"
+                android:fontFamily="sans-serif"
+        />
+        <Button
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                tools:layout_editor_absoluteY="4dp"
+                tools:layout_editor_absoluteX="323dp"
+                android:layout_width="wrap_content"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:textAlignment="textEnd"
+                android:drawableRight="@android:drawable/ic_input_add"
+                android:id="@+id/btn_cria_tarefa"
+        />
+    </android.support.v7.widget.Toolbar>
     <LinearLayout
+            android:paddingTop="?attr/actionBarSize"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

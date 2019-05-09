@@ -5,28 +5,21 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".EditaTarefa" android:id="@+id/seek_prioridade_tarefa">
+        tools:context=".EditaTarefaActivity" android:id="@+id/seek_prioridade_tarefa">
 
     <EditText
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
             android:inputType="textPersonName"
             android:text="Name"
             android:ems="10"
-            tools:layout_editor_absoluteY="112dp" android:id="@+id/txt_edit_tarefa_nome" android:layout_marginEnd="8dp"
+            android:id="@+id/txt_edit_tarefa_nome" android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
-            app:layout_constraintStart_toStartOf="parent" android:hint="Tarefa"/>
-    <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:text="Name"
-            android:ems="10"
-            android:id="@+id/editText2" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/editText3" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/txt_edit_tarefa_nome"/>
+            app:layout_constraintStart_toStartOf="parent"
+            android:hint="Tarefa"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/seekBar" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.881"/>
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -35,22 +28,28 @@
             android:id="@+id/editText3"
             android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginBottom="28dp"
-            app:layout_constraintBottom_toTopOf="@+id/textView" android:hint="Descrição"/>
-    <SeekBar
-            style="@style/Widget.AppCompat.SeekBar.Discrete"
-            android:layout_width="195dp"
-            android:layout_height="39dp"
-            android:max="4"
-            android:progress="0"
-            android:id="@+id/seek_edit_prioridade" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginBottom="380dp"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintHorizontal_bias="0.455"/>
+            app:layout_constraintStart_toStartOf="parent"
+            android:hint="Descrição" android:layout_marginBottom="460dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+    />
     <TextView
             android:text="prioridade"
             android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:id="@+id/textView"
+            app:layout_constraintEnd_toStartOf="@+id/seekBar"
+            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.978"
+            app:layout_constraintTop_toTopOf="@+id/seekBar" app:layout_constraintBottom_toBottomOf="@+id/seekBar"/>
+    <SeekBar
+            style="@android:style/Widget.Material.SeekBar.Discrete"
+            android:layout_width="142dp"
             android:layout_height="wrap_content"
-            tools:layout_editor_absoluteX="173dp" android:id="@+id/textView" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/seek_edit_prioridade"/>
+            android:max="3"
+            android:progress="0"
+            android:id="@+id/seekBar"
+            android:layout_marginEnd="96dp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="12dp"
+            app:layout_constraintBottom_toTopOf="@+id/editText3"
+    />
 </android.support.constraint.ConstraintLayout>

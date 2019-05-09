@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseExpandableListAdapter
+import android.widget.CheckBox
 import android.widget.TextView
 import bc.com.flops.R
 import bc.com.flops.StateChanged
@@ -39,8 +40,13 @@ class ListaTarefasAdapter(private val ctx: Context): BaseExpandableListAdapter()
         if (view == null) view = LayoutInflater.from(ctx).inflate(R.layout.header_lista_tarefas, parent, false)
 
         val titulo = view?.findViewById<TextView>(R.id.header_txt_titulo)
+        val progresso = view?.findViewById<TextView>(R.id.header_txt_progresso)
+        val done = view?.findViewById<CheckBox>(R.id.header_check)
 
         titulo?.text = tituloListas[tarefa].nome
+        progresso?.text = tituloListas[tarefa].progresso.toString() + "%"
+
+        done!!.isChecked = tituloListas[tarefa].progresso == 100 && !done!!.isChecked
 
         return view!!
     }

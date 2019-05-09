@@ -6,7 +6,7 @@ import android.widget.EditText;
 import bc.com.flops.gerentes.GerenteTarefas;
 import bc.com.flops.gerentes.GerenteTarefasFirebase;
 
-public class EditaTarefa extends AppCompatActivity {
+public class EditaTarefaActivity extends AppCompatActivity {
 
     private GerenteTarefas gt = GerenteTarefasFirebase.getInstance();
 

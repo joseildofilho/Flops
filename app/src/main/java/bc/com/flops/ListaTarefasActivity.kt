@@ -35,7 +35,6 @@ class ListaTarefasActivity: Fragment() {
         lista.setAdapter(adapter)
 
         lista.onGroupClick { parent, v, groupPosition, id ->
-            Log.v("testando", "opaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
         }
 
         lista.onItemLongClick { parent, _, position, id ->
@@ -48,7 +47,7 @@ class ListaTarefasActivity: Fragment() {
 
             if (itemType == ExpandableListView.PACKED_POSITION_TYPE_GROUP) {
                 val id_tarefa = adapter.getGroup(groupPos).nome
-                startActivity<EditaTarefa>("tarefa" to id_tarefa)
+                startActivity<EditaTarefaActivity>("tarefa" to id_tarefa)
             }
         }
     }
