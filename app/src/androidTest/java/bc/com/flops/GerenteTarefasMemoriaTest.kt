@@ -2,7 +2,7 @@ package bc.com.flops
 
 import bc.com.flops.fabricas.FabricaTarefa
 import bc.com.flops.gerentes.GerenteTarefas
-import bc.com.flops.gerentes.GerenteTarefasMemoria
+import bc.com.flops.gerentes.GerenteTarefasFirebase
 import junit.framework.Assert.*
 import org.junit.Before
 import org.junit.Test
@@ -14,7 +14,7 @@ class GerenteTarefasMemoriaTest {
     private lateinit var tarefa2:Tarefa
     @Before
     fun setUp() {
-        gerenteTarefas = GerenteTarefasMemoria
+        gerenteTarefas = GerenteTarefasFirebase.getInstance()
 
         tarefa = FabricaTarefa.tarefaEmBranco()
         tarefa.nome = "Test1"

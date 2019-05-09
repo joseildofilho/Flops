@@ -39,6 +39,6 @@ interface GerenteTarefas {
      * Cadastra um objeto para fica escutando quando houver mudanças no gerente
      * */
 
-    fun cadastraListener(inter: StateChanged<Tarefa>)
+    fun cadastraListener(inter: StateChanged<List<Tarefa>>)
 
 }

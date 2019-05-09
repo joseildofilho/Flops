@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "201494166153",
+    "firebase_url": "https://flops-app.firebaseio.com",
+    "project_id": "flops-app",
+    "storage_bucket": "flops-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:201494166153:android:e19829e5d63337e4",
+        "android_client_info": {
+          "package_name": "bc.com.flops"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "201494166153-n8f1tespbhp7kia35go2p7stm7rdsm6i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTaR1HHrg0b7Hk-WOZCSoMgBOq2R5DfBs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "201494166153-n8f1tespbhp7kia35go2p7stm7rdsm6i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,7 +1,6 @@
 package bc.com.flops.adapters
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,14 +16,12 @@ import bc.com.flops.Tarefa
  * Classe responsavel por gerenciar o que está sendo mostrado da view lista_tarefas
  * */
 
-class ListaTarefasAdapter(private val ctx: Context): BaseExpandableListAdapter(), StateChanged<Tarefa> {
+class ListaTarefasAdapter(private val ctx: Context): BaseExpandableListAdapter(), StateChanged<List<Tarefa>> {
 
     override fun onChange(list: List<Tarefa>) {
-        this.tituloListas.clear()
-        Log.v("Gerente", list.size.toString())
-        list.forEach {
-            this.add(it)
-        }
+        notifyDataSetChanged()
+        this.tituloListas = list.toMutableList()
+
     }
 
     private var tituloListas = mutableListOf<Tarefa>()
@@ -75,7 +72,7 @@ class ListaTarefasAdapter(private val ctx: Context): BaseExpandableListAdapter()
 
     override fun getGroupCount(): Int = tituloListas.size
 
-    override fun getGroup(p0: Int): Any = tituloListas[p0]
+    override fun getGroup(p0: Int): Tarefa = tituloListas[p0]
 
 
 }

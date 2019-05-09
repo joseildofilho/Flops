@@ -29,6 +29,8 @@ data class Tarefa(
     private var tarefaTemporal:TarefaTemporal? = null
     private val tarefas: HashSet<Tarefa> = hashSetOf()
 
+    constructor() : this(0, "", Date(), 0, "", 0)
+
     fun subTarefas(): Array<Tarefa> {
         return tarefas.toTypedArray()
     }

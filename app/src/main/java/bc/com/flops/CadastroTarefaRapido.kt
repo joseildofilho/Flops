@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import bc.com.flops.fabricas.FabricaTarefa
 import bc.com.flops.gerentes.GerenteTarefas
-import bc.com.flops.gerentes.GerenteTarefasMemoria
+import bc.com.flops.gerentes.GerenteTarefasFirebase
 import kotlinx.android.synthetic.main.activity_cadastro_tarefa_rapido.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.toast
@@ -19,7 +19,7 @@ import org.jetbrains.anko.toast
 
 class CadastroTarefaRapido : Fragment() {
 
-    private val gerenteTarefas:GerenteTarefas = GerenteTarefasMemoria
+    private val gerenteTarefas:GerenteTarefas = GerenteTarefasFirebase.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,6 +39,7 @@ class CadastroTarefaRapido : Fragment() {
             val tarefa = FabricaTarefa.tarefaEmBranco()
             tarefa.nome = txt_tarefa_rapida.text.toString()
             gerenteTarefas.cadastrarTarefa(tarefa)
+            Log.v("Gerente", "cadastrando")
         }
 
     }
