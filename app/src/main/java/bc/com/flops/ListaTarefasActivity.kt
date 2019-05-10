@@ -33,7 +33,7 @@ class ListaTarefasActivity: Fragment() {
 
         lista.setAdapter(adapter)
 
-        lista.onItemLongClick { parent, _, position, id ->
+        lista.onItemLongClick { parent, view, position, id ->
             val ev = parent as ExpandableListView
             val pos = ev.getExpandableListPosition(position)
 
@@ -44,9 +44,11 @@ class ListaTarefasActivity: Fragment() {
             if (itemType == ExpandableListView.PACKED_POSITION_TYPE_GROUP) {
                 val id_tarefa = adapter.getGroup(groupPos).nome
                 startActivity<EditaTarefaActivity>("tarefa" to id_tarefa)
+            } else if (itemType == ExpandableListView.PACKED_POSITION_TYPE_CHILD) {
             }
-        }
 
+        }
     }
+
 }
 

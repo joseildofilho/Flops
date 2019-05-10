@@ -14,6 +14,10 @@
                                        android:background="?attr/colorPrimary"
                                        app:layout_constraintTop_toTopOf="parent"
     >
+        <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+                style="@style/Widget.AppCompat.Button.Borderless" tools:layout_editor_absoluteY="4dp"
+                tools:layout_editor_absoluteX="16dp" android:drawableLeft="@android:drawable/ic_menu_preferences"
+                android:id="@+id/btn_preferencias"/>
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

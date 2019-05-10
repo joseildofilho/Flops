@@ -17,10 +17,16 @@ public class FabricaTarefa {
     }
 
     public static Tarefa tarefaEmBranco() {
-        return new Tarefa(0, "", new Date(), 0, "", 0);
+        return new Tarefa();
     }
 
     public static TarefaTemporal tarefaTemporalEmBranco() {
         return new TarefaTemporal(new Date(), 0L,0L);
+    }
+
+    public static Tarefa tarefaEmBrancoComSubTarefa() {
+        Tarefa t = new Tarefa();
+        t.addSubTarefa(new Tarefa());
+        return t;
     }
 }

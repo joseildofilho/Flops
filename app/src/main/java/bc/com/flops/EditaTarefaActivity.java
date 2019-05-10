@@ -24,8 +24,6 @@ public class EditaTarefaActivity extends AppCompatActivity {
 
     private Button btn_delete;
 
-    private ListView lst_subTarefas;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,9 +37,9 @@ public class EditaTarefaActivity extends AppCompatActivity {
         btn_salvar = this.findViewById(R.id.edit_btn_salvar);
         btn_delete = this.findViewById(R.id.edit_btn_delete);
 
-        lst_subTarefas = this.findViewById(R.id.edit_list_tarefas);
-
         timepicker_cadastra_tempo.setIs24HourView(true);
+        timepicker_cadastra_tempo.setHour(0);
+        timepicker_cadastra_tempo.setMinute(0);
 
         String tarefa_nome = getIntent().getExtras().getString("tarefa");
 

@@ -36,8 +36,9 @@ class CadastroTarefaRapido : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         btn_cadastra_rapido.onClick {
             toast(txt_tarefa_rapida.text)
-            val tarefa = FabricaTarefa.tarefaEmBranco()
+            val tarefa = FabricaTarefa.tarefaEmBrancoComSubTarefa()
             tarefa.nome = txt_tarefa_rapida.text.toString()
+            txt_tarefa_rapida.text.clear()
             gerenteTarefas.cadastrarTarefa(tarefa)
             Log.v("Gerente", "cadastrando")
         }

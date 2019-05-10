@@ -66,18 +66,12 @@
             android:id="@+id/edit_btn_delete" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
             app:layout_constraintHorizontal_bias="0.498" style="@style/Widget.AppCompat.Button.Colored"
-            android:backgroundTint="@color/altaPrioridade" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/edit_list_tarefas"/>
+            android:backgroundTint="@color/altaPrioridade"
+            android:layout_marginBottom="176dp" app:layout_constraintBottom_toBottomOf="parent"/>
     <TimePicker android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:timePickerMode="spinner" android:id="@+id/edit_timePicker" android:layout_marginBottom="8dp"
                 app:layout_constraintBottom_toTopOf="@+id/edit_btn_salvar" app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginEnd="8dp"
     ></TimePicker>
-    <android.support.v7.widget.RecyclerView
-            android:layout_width="395dp"
-            android:layout_height="160dp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent" android:id="@+id/edit_list_tarefas"
-            android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"/>
 </android.support.constraint.ConstraintLayout>

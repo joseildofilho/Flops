@@ -24,13 +24,13 @@ data class Tarefa(
     val dataCriacao: Date,
     var progresso:Int,
     var descricao:String,
-    var prioridade:Int
+    var prioridade:Int,
+    var tarefas: MutableList<Tarefa>
 
 ) {
     var tarefaTemporal:TarefaTemporal? = null
-    private val tarefas: HashSet<Tarefa> = hashSetOf()
 
-    constructor() : this(0, "", Date(), 0, "", 0)
+    constructor() : this(0, "", Date(), 0, "", 0, mutableListOf<Tarefa>())
 
     fun subTarefas(): Array<Tarefa> {
         return tarefas.toTypedArray()
@@ -41,15 +41,14 @@ data class Tarefa(
     }
 
     fun addSubTarefa(tarefa:Tarefa) {
-        tarefas.add(tarefa)
+        if(!tarefas.contains(tarefa)) {
+            tarefas.add(tarefa)
+        }
     }
 
-    fun removeSubTarefa(id:Int) =
-        this.tarefas
-            .filter { it.id == id }
-            .forEach {
-                tarefas.remove(it)
-            }
+    fun removeSubTarefa(nome:String) {
+        tarefas.remove(tarefas.find { it.nome == nome })
+    }
 
     fun calculaProgresso() {
         Log.v("Tarefa","Tarefa: ${this.nome} Calculando progresso, Progresso atual: ${this.progresso}")

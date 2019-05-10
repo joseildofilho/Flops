@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".LoginActivity" android:orientation="vertical"
+        android:gravity="center_horizontal|center_vertical">
+
+    <TextView
+            android:text="Login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/textView3" android:textAlignment="center"
+            android:textSize="50sp"/>
+    <Space
+            android:layout_width="match_parent"
+            android:layout_height="20sp" android:layout_weight="0"/>
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:ems="10"
+                android:hint="Email"
+                android:id="@+id/login_email"/>
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="Senha"
+                android:ems="10"
+                android:id="@+id/login_senha" android:layout_weight="1"/>
+    </LinearLayout>
+    <Button
+            android:text="Cadastrar/Logar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/login_btn_email"
+            android:drawableLeft="@android:drawable/ic_dialog_email"/>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/login_anonimo"
+            android:text="    Entrar Anonimo"
+            android:drawableLeft="@android:drawable/ic_menu_help"/>
+</LinearLayout>

@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 import android.util.Log;
 import bc.com.flops.StateChanged;
 import bc.com.flops.Tarefa;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.*;
 import org.jetbrains.annotations.NotNull;
 
@@ -18,9 +19,11 @@ public class GerenteTarefasFirebase implements GerenteTarefas {
     private static final GerenteTarefasFirebase instance = new GerenteTarefasFirebase();
     private Map<String, Tarefa> tarefas = new HashMap<>();
     private List<StateChanged> ouvidos = new ArrayList<>();
+    private DatabaseReference reference;
 
     private GerenteTarefasFirebase() {
-        DatabaseReference reference = db.getReference("/tarefas/usuario/");
+        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        reference = db.getReference("/tarefas/" + uid + "/");
         ValueEventListener vel = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -48,10 +51,7 @@ public class GerenteTarefasFirebase implements GerenteTarefas {
     @Override
     public boolean cadastrarTarefa(@NotNull Tarefa tarefa) {
         if (!tarefas.containsKey(tarefa.getNome())) {
-
             tarefas.put(tarefa.getNome(), tarefa);
-
-            DatabaseReference reference = db.getReference("/tarefas/usuario/");
             reference.setValue(tarefas);
             notifyOuvidos();
             return true;
@@ -69,7 +69,6 @@ public class GerenteTarefasFirebase implements GerenteTarefas {
     public boolean removerTarefa(@NotNull String nome) {
         if(tarefas.containsKey(nome)) {
             tarefas.remove(nome);
-            DatabaseReference reference = db.getReference("/tarefas/usuario/");
             reference.setValue(tarefas);
             notifyOuvidos();
             return true;
@@ -97,12 +96,10 @@ public class GerenteTarefasFirebase implements GerenteTarefas {
     public boolean alteraTarefa(@NotNull String nome, @NotNull Tarefa tarefa) {
         if (tarefas.containsKey(nome)) {
             Log.v("Alterando Tarefa", "Nome Antigo:" + nome + " Nome Novo: " + tarefa.getNome());
-            DatabaseReference reference = db.getReference("/tarefas/usuario/");
             tarefas.remove(nome);
-            reference.setValue(tarefas);
             tarefas.put(tarefa.getNome(), tarefa);
-            reference.setValue(tarefas);
             notifyOuvidos();
+            reference.child(nome).setValue(tarefa);
             return true;
         }
         return false;

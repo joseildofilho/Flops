@@ -1,17 +1,17 @@
 package bc.com.flops.adapters
 
+import android.app.AlertDialog
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseExpandableListAdapter
-import android.widget.CheckBox
-import android.widget.ImageButton
-import android.widget.TextView
+import android.widget.*
 import bc.com.flops.Cronometro
 import bc.com.flops.R
 import bc.com.flops.StateChanged
 import bc.com.flops.Tarefa
+import bc.com.flops.fabricas.FabricaTarefa
+import bc.com.flops.gerentes.GerenteTarefasFirebase
 import org.jetbrains.anko.startActivity
 
 /**
@@ -31,7 +31,7 @@ class ListaTarefasAdapter(private val ctx: Context): BaseExpandableListAdapter()
     private var tituloListas = mutableListOf<Tarefa>()
 
     override fun isChildSelectable(p0: Int, p1: Int): Boolean {
-        return false
+        return true
     }
 
     override fun hasStableIds(): Boolean {
@@ -60,6 +60,10 @@ class ListaTarefasAdapter(private val ctx: Context): BaseExpandableListAdapter()
 
         done!!.isChecked = tituloListas[tarefa].progresso == 100 && !done!!.isChecked
 
+        var color = Unit
+
+        val x = listOf<Int>(android.R.attr.state_checked, android.R.attr.state_checked)
+
         val temporal_pomodoro = view?.findViewById<ImageButton>(R.id.header_btn_pomodoro)
         if( temporal_pomodoro != null)
             if(tituloListas[tarefa].isTemporal()) {
@@ -75,11 +79,41 @@ class ListaTarefasAdapter(private val ctx: Context): BaseExpandableListAdapter()
         var view = convertView
         if (view == null) view = LayoutInflater.from(ctx).inflate(R.layout.item_lista_tarefa, parent, false)
 
-        val txt_item = view?.findViewById<TextView>(R.id.item_lista_tarefa_txt_nome)
+        val edittxt_item = view?.findViewById<TextView>(R.id.item_lista_tarefa_txt_nome)
 
-        txt_item?.text = "Funciona"
+        val subTarefa = tituloListas[tarefa].tarefas[sub]
+        if (subTarefa.nome == "")
+            edittxt_item!!.setText("Adicione Sua Tarefa Aqui")
+        else
+            edittxt_item!!.setText(subTarefa.nome)
+
+        edittxt_item.setOnClickListener {
+            showDialog(subTarefa, tituloListas[tarefa])
+        }
+
+        GerenteTarefasFirebase.getInstance().alteraTarefa(tituloListas[tarefa].nome, tituloListas[tarefa])
 
         return view!!
+    }
+
+    private fun showDialog(tarefa: Tarefa, tarefa2: Tarefa) {
+        val li = LayoutInflater.from(ctx);
+        val view = li.inflate(R.layout.input_sub_tarefa, null)
+        val builder = AlertDialog.Builder(ctx)
+        builder.setView(view)
+
+        val x = view.findViewById<EditText>(R.id.input_edit_tarefa)
+        x.setText(tarefa.nome)
+
+            builder.setCancelable(false).setPositiveButton("OK", { dialogInterface, i ->
+                tarefa.nome = x.text.toString()
+                tarefa2.addSubTarefa(FabricaTarefa.tarefaEmBranco())
+            }).setNegativeButton("Cancela", { dialogInterface, i ->
+                dialogInterface.cancel()
+            })
+        val c = builder.create()
+        c.show()
+
     }
 
     fun add(taf: Tarefa): Boolean {
