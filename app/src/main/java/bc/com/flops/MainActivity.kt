@@ -7,7 +7,6 @@ import android.view.Menu
 import android.view.View
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_main.*
-import org.jetbrains.anko.startActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,12 +22,6 @@ class MainActivity : AppCompatActivity() {
                 fragmentManager.findFragmentById(R.id.quick_cadastro_fragment).view.visibility = View.GONE
             else
                 fragmentManager.findFragmentById(R.id.quick_cadastro_fragment).view.visibility = View.VISIBLE
-        }
-
-        button.setOnClickListener {
-
-            startActivity<Cronometro>("tarefa" to "Programar o Aplicativo")
-
         }
 
         val database = FirebaseDatabase.getInstance()

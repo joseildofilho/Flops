@@ -1,5 +1,6 @@
 package bc.com.flops
 
+import android.util.Log
 import java.util.*
 
 
@@ -26,7 +27,7 @@ data class Tarefa(
     var prioridade:Int
 
 ) {
-    private var tarefaTemporal:TarefaTemporal? = null
+    var tarefaTemporal:TarefaTemporal? = null
     private val tarefas: HashSet<Tarefa> = hashSetOf()
 
     constructor() : this(0, "", Date(), 0, "", 0)
@@ -49,6 +50,15 @@ data class Tarefa(
             .forEach {
                 tarefas.remove(it)
             }
+
+    fun calculaProgresso() {
+        Log.v("Tarefa","Tarefa: ${this.nome} Calculando progresso, Progresso atual: ${this.progresso}")
+        if (tarefaTemporal != null) {
+            Log.v("Tarefa", "Alterando valor de progresso")
+            this.progresso = ((tarefaTemporal!!.tempoDecorrido.toFloat() / tarefaTemporal!!.tempoEsperado) * 100).toInt()
+        }
+        Log.v("Tarefa","Tarefa: ${this.nome} Progresso apos calculo: ${this.progresso}")
+    }
 
     override fun hashCode(): Int {
         return id

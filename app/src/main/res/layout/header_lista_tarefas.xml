@@ -19,7 +19,8 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:text="@string/sem_Tarefa"
-            android:textAlignment="textStart"/>
+            android:textAlignment="textStart"
+    android:focusable="false"/>
     <Space
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:layout_weight="100"/>
@@ -28,7 +29,7 @@
             android:layout_height="wrap_content" app:srcCompat="@android:drawable/ic_lock_idle_alarm"
             android:id="@+id/header_btn_pomodoro" android:layout_weight="0"
             style="@android:style/Widget.DeviceDefault.ImageButton" android:scaleType="centerInside"
-            android:visibility="gone"/>
+            android:visibility="gone" android:focusable="false"/>
     <TextView
             android:text="100%"
             android:layout_width="wrap_content"
@@ -37,6 +38,7 @@
             android:layout_weight="0"
             android:textSize="20sp"
             android:paddingRight="10sp"
-            android:textAlignment="textEnd"/>
+            android:textAlignment="textEnd"
+    android:focusable="false"/>
 
 </LinearLayout>

@@ -8,9 +8,11 @@ import android.widget.BaseExpandableListAdapter
 import android.widget.CheckBox
 import android.widget.ImageButton
 import android.widget.TextView
+import bc.com.flops.Cronometro
 import bc.com.flops.R
 import bc.com.flops.StateChanged
 import bc.com.flops.Tarefa
+import org.jetbrains.anko.startActivity
 
 /**
  * Lista Tarefas Adapter
@@ -40,9 +42,18 @@ class ListaTarefasAdapter(private val ctx: Context): BaseExpandableListAdapter()
         var view: View? = convertView
         if (view == null) view = LayoutInflater.from(ctx).inflate(R.layout.header_lista_tarefas, parent, false)
 
+        val pomodoro = view?.findViewById<ImageButton>(R.id.header_btn_pomodoro)
+        if (pomodoro != null) {
+            pomodoro.setFocusable(false)
+        }
+
         val titulo = view?.findViewById<TextView>(R.id.header_txt_titulo)
         val progresso = view?.findViewById<TextView>(R.id.header_txt_progresso)
         val done = view?.findViewById<CheckBox>(R.id.header_check)
+
+        pomodoro!!.setOnClickListener {
+            ctx.startActivity<Cronometro>("tarefa" to "${titulo!!.text}")
+        }
 
         titulo?.text = tituloListas[tarefa].nome
         progresso?.text = tituloListas[tarefa].progresso.toString() + "%"

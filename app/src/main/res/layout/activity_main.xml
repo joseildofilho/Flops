@@ -59,12 +59,4 @@
             android:id="@+id/quick_cadastro_fragment"
             class="bc.com.flops.CadastroTarefaRapido"
             app:layout_constraintStart_toStartOf="parent"/>
-    <Button
-            android:text="Cronometro"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/button"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="@+id/linearLayout2" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"/>
 </android.support.constraint.ConstraintLayout>

@@ -1,6 +1,7 @@
 package bc.com.flops.gerentes;
 
 import android.support.annotation.NonNull;
+import android.util.Log;
 import bc.com.flops.StateChanged;
 import bc.com.flops.Tarefa;
 import com.google.firebase.database.*;
@@ -68,6 +69,8 @@ public class GerenteTarefasFirebase implements GerenteTarefas {
     public boolean removerTarefa(@NotNull String nome) {
         if(tarefas.containsKey(nome)) {
             tarefas.remove(nome);
+            DatabaseReference reference = db.getReference("/tarefas/usuario/");
+            reference.setValue(tarefas);
             notifyOuvidos();
             return true;
         }
@@ -88,5 +91,20 @@ public class GerenteTarefasFirebase implements GerenteTarefas {
         for(StateChanged ouvido: ouvidos) {
             ouvido.onChange(new ArrayList<>(tarefas.values()));
         }
+    }
+
+    @Override
+    public boolean alteraTarefa(@NotNull String nome, @NotNull Tarefa tarefa) {
+        if (tarefas.containsKey(nome)) {
+            Log.v("Alterando Tarefa", "Nome Antigo:" + nome + " Nome Novo: " + tarefa.getNome());
+            DatabaseReference reference = db.getReference("/tarefas/usuario/");
+            tarefas.remove(nome);
+            reference.setValue(tarefas);
+            tarefas.put(tarefa.getNome(), tarefa);
+            reference.setValue(tarefas);
+            notifyOuvidos();
+            return true;
+        }
+        return false;
     }
 }

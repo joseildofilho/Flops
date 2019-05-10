@@ -7,7 +7,7 @@ import junit.framework.Assert.*
 import org.junit.Before
 import org.junit.Test
 
-class GerenteTarefasMemoriaTest {
+class GerenteTarefasFirebaseTest {
 
     private lateinit var gerenteTarefas: GerenteTarefas
     private lateinit var tarefa:Tarefa

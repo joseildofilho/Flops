@@ -35,6 +35,11 @@ interface GerenteTarefas {
     fun quantTarefas(): Int
 
     /**
+     * Altera tarefa caso ela exista no sistema
+     * */
+    fun alteraTarefa(nome:String, tarefa:Tarefa): Boolean
+
+    /**
      *
      * Cadastra um objeto para fica escutando quando houver mudanças no gerente
      * */

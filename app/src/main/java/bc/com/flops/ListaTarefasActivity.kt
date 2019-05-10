@@ -46,6 +46,7 @@ class ListaTarefasActivity: Fragment() {
                 startActivity<EditaTarefaActivity>("tarefa" to id_tarefa)
             }
         }
+
     }
 }
 
