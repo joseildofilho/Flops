@@ -25,6 +25,7 @@ class ListaTarefasAdapter(private val ctx: Context): BaseExpandableListAdapter()
     override fun onChange(list: List<Tarefa>) {
         notifyDataSetChanged()
         this.tituloListas = list.toMutableList()
+        this.tituloListas.sortBy { -it.prioridade }
 
     }
 
